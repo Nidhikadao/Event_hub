@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+  contact
+{% endblock %}
+{% block contactactive %}active{% endblock contactactive %}
+{% load static %}
+{% block body %}
+
+  <div class="container-fluid">
+    <img class="d-block w-100 my-4 " src="{%static 'home/maya-maceka-yW-Qgw_IJXg-unsplash.jpg' %}" alt="First slide" width="200" height="800">  
+    <h3 class="text-center top:250px">REGISTER</h3>
+  </div>
+  <form method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+    <div class="container my-4">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="fname" name="fname" placeholder="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">College name</label>
+      <input type="name" class="form-control" id="collegename" name="collegename" placeholder="name of institute">
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Academic year</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>1st year</option>
+        <option>2nd year</option>
+        <option>3rd year</option>
+        <option>4thyear</option>
+        <option>pass out</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Student course </label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>B.tech</option>
+        <option>polytech</option>
+        <option>BCA</option>
+        <option>BSC</option>
+        <option>BBA</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Interested in clubs</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Technology</option>
+        <option>Creativity</option>
+        <option>Sports</option>
+        <option>Cultural</option>
+        <option>Research</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">describe</label>
+      <textarea class="form-control" id="describe" name="describe" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit" my-4>Submit</button>
+  </form>
+</div>
+</div>
+
+
+{% endblock %}

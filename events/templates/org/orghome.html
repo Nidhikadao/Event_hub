@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}
+  org home
+{% endblock %}
+{% block searchactive %} active {% endblock searchactive %}
+{% block js %}
+<script>
+  let previews=document.getElementsByClassName('preview');
+  Array.from(previews).forEach((element)=>{
+    element.innerHTML=element.innerText;
+  });
+</script>
+{% endblock js  %}
+
+
+{% block body %}
+
+<div class="container my-4">
+   
+    
+    {% for post in allPosts %}
+    <div class="card" style="width: 70rem;">
+  
+    <img class="card-img-top" src="/media/{{post.image}}" my-4 height="700" alt="Card image cap" />
+    
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <div class="mb-1 text-muted">{{post.timeStamp}}</div>
+      <p class="card-text">{{post.content|safe| truncatechars:500}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <hr>
+      <li class="list-group-item">{{post.College}}</li>
+      <li class="list-group-item">{{post.venue}}</li>
+      <li class="list-group-item">{{post.connect}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="{{post.registerurl}}" class="btn btn-info" role="button" aria-pressed="true">Register📝</a>
+      <a href="{{post.reachurl}}" class="btn btn-secondary" role="button" aria-pressed="true">Connect🤝</a>
+      <a href="{% url 'orgpost' post.slug %}" class="btn btn-info " role="button" aria-pressed="true">Read more✔️ </a>
+      
+    </div>
+</div>
+
+ 
+  {% endfor %}
+{% endblock %}

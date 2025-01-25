@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Home
+{% endblock %}
+{% load static %}
+<img src="{% static 'my_app/example.jpg' %}" alt="My image">
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Intercollege Event Management</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{% static "home/download (14).jpeg" %}') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease;
+      letter-spacing: 1.5px;
+    }
+
+    .hero-section p {
+      font-size: 1.5rem;
+      margin-top: 10px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .hero-section .btn {
+      margin-top: 40px;
+      background-color: #ff6f61;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: white;
+      transition: all 0.3s ease;
+      animation: fadeIn 2s ease;
+      border-radius: 50px;
+    }
+
+    .hero-section .btn:hover {
+      background-color: #ff9b8f;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Feature Section */
+    .container-marketing {
+      margin-top: 60px;
+      padding-bottom: 60px;
+      padding: 0 30px;
+    }
+
+    .rounded-circle {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+
+    .rounded-circle:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      margin-top: 25px;
+      color: #264653;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: #777;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    /* Beautiful buttons */
+    .btn-secondary {
+      background-color: #e76f51;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f4a261;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Footer styling */
+    .footer {
+      background-color: #264653;
+      padding: 40px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #e9c46a;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Add smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* General transition effect */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Spacing adjustments for better visuals */
+    .row {
+      margin-bottom: 50px;
+    }
+
+    .col-lg-4 {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div>
+    <h1>Welcome to the Event Hub</h1>
+    <p>Empowering students from all colleges to grow, connect, and succeed.</p>
+    <a class="btn btn-primary" href="/about">Explore Opportunities</a>
+  </div>
+</section>
+
+<!-- Feature Section -->
+<div class="container my-4">
+<div class="container marketing " id="learn-more">
+  <div class="row text-center fade-in">
+    <div class="col-lg-4">
+      <img class="rounded-circle" src="{% static 'home/kelly-sikkema-K5dAn1gOFEc-unsplash.jpg' %}" alt="Learn" width="160" height="160">
+      <h2>Learn</h2>
+      <p>Sharpen your skills by participating in diverse events across colleges.</p>
+      <p><a class="btn btn-secondary" href="/about" role="button">Discover More &raquo;</a></p>
+    </div>
+    
+    <div class="col-lg-4 fade-in">
+      <img class="rounded-circle" src="{% static 'home/istockphoto-1035672156-1024x1024.jpg' %}" alt="Connect" width="160" height="160">
+      <h2>Connect</h2>
+      <p>Network with alumni, mentors, and fellow students to grow your career.</p>
+      <p><a class="btn btn-secondary" href="/about" role="button">Find Out More &raquo;</a></p>
+    </div>
+
+    <div class="col-lg-4 fade-in">
+      <img class="rounded-circle" src="{% static 'home/istockphoto-1051554956-1024x1024.jpg' %}" alt="Grow" width="160" height="160">
+      <h2>Grow</h2>
+      <p>Achieve greater heights by competing in intercollege events and expanding your skill set.</p>
+      <p><a class="btn btn-secondary" href="/about" role="button">Learn More &raquo;</a></p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer Section -->
+<div class="footer">
+  <p>&copy; 2024 Intercollege Event Hub. All rights reserved. | <a href="#">Privacy Policy</a></p>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Fade in effect on scroll for feature section
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = {
+    threshold: 0.3,
+    rootMargin: "0px 0px -100px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+</body>
+</html>
+{% endblock body %}
